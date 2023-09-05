@@ -1,0 +1,25 @@
+header {
+    background-color: $red;
+    color: $white;
+    font-size: 20px;
+    width: 100%;
+
+    a {
+        color: $pink;
+        transition: 0.2s;
+        padding: 5px 0;
+
+        &.active {
+            color: $white;
+            font-size: 22px;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+    }
+
+    .header-links {
+        gap: 10px;
+    }
+}
