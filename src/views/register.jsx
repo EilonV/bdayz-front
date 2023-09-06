@@ -1,5 +1,5 @@
 export const Register = ()=>{
-    return <section>
-    register
+    return <section className="main-layout">
+    <p>register</p>
 </section>
 }

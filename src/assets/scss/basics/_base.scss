@@ -4,7 +4,6 @@
 
 html {
     transition: 0.2s;
-    height: 100vh;
     scroll-behavior: smooth;
     font-family: Rubik;
 }
@@ -55,12 +54,6 @@ ul {
     // background: #555;
 }
 
-h2 {
-    font-size: 5vw;
-    font-family: Couture;
-    margin-bottom: 20px;
-}
-
 .logo {
     font-size: 40px;
     font-family: JH;
@@ -69,5 +62,54 @@ h2 {
 
     &::first-letter {
         color: $yellow;
+    }
+}
+
+button {
+    background-color: $red;
+    border: none;
+    width: fit-content;
+    font-size: 20px;
+    font-weight: 700;
+    color: $white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        background-color: $red;
+        color: $yellow;
+    }
+
+    &:active {
+        box-shadow: inset 20px 20px 60px #a23754,
+            inset -20px -20px 60px #dc4b72;
+    }
+}
+
+input {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: $red 2px solid;
+    color: $red;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: Rubik;
+    text-align: right;
+
+    &:focus {
+        border: $yellow 2px solid;
+        // background-color: $pink;
+        outline: none;
+    }
+
+    &::selection {
+        background-color: $red;
+        color: $white;
+    }
+
+    &::placeholder {
     }
 }

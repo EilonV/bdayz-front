@@ -11,6 +11,9 @@ export const Header = () => {
                 <NavLink to="/login" className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : ""
                 }>התחברות</NavLink>
+                <NavLink to="/register" className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                }>הרשמה</NavLink>
             </div>
         </nav>
     </header>
