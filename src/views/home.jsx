@@ -24,6 +24,14 @@ export const Home = () => {
         return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
     }
 
+    const addBday = () => {
+        const data = {
+            "name": "eilonki pilonki",
+            "date": Date.now(),
+        }
+        httpsService.addBday('64fc85085e90bb58b91cf234',data)
+    }
+
     return <section className="home main-layout">
         <div className="bdayz">
             {user.bdayz.map((bday) => {
@@ -33,6 +41,6 @@ export const Home = () => {
                 </div>
             })}
         </div>
-        <button>הוסף</button>
+        <button onClick={addBday}>הוסף</button>
     </section>
 }

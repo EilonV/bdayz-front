@@ -4,7 +4,8 @@ export const httpsService = {
     getAll,
     get,
     find,
-    postUser
+    postUser,
+    addBday
 }
 
 function getAll(page = 0) {
@@ -21,4 +22,7 @@ function find(query, by = "name", page = 0) {
 
 function postUser(data) {
     return http.post("/", data);
+}
+function addBday(id, data) {
+    return http.put(`/id/${id}`, data);
 }

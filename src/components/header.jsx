@@ -1,6 +1,12 @@
 import { NavLink } from "react-router-dom"
 
 export const Header = () => {
+    const removeCookies = () => {
+        const cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+          console.log(cookies[0]);
+        }
+    }
     return <header className="main-layout">
         <nav className="flex align-center space-between">
             <span className="logo">ZYADB</span>
@@ -16,5 +22,6 @@ export const Header = () => {
                 }>הרשמה</NavLink>
             </div>
         </nav>
+        <button onClick={removeCookies}>התנתקות</button>
     </header>
 }
