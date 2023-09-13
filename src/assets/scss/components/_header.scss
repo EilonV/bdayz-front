@@ -23,4 +23,24 @@ header {
     .header-links {
         gap: 10px;
     }
+
+    .logged-header {
+        gap: 10px;
+
+        .logged-name {
+            span {
+                color: $yellow;
+            }
+        }
+
+        .logout {
+            cursor: pointer;
+            transition: 0.2s;
+            padding: 5px 0;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+        }
+    }
 }
