@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { httpsService } from "../services/https.service";
 import { useNavigate } from "react-router-dom";
-import { localStorageService } from "../services/localstorage";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -31,7 +30,6 @@ export const Login = () => {
     }
 
     const successfulLogin = (id, name, img) => {
-        localStorageService.saveToStorage('bdayz-user', { id, name })
         document.cookie = `id = ${id}`
         document.cookie = `name=${name}`
         setLoading(true)

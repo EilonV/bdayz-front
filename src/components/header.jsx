@@ -37,7 +37,7 @@ export const Header = () => {
 
                 {cookies && <div className="logged-header flex align-center">
                     <p className="logout" onClick={removeCookies}>התנתקות</p>
-                    <p className="logged-name"><span>{name}</span> ,היי</p>
+                    <p className="logged-name">היי, <span>{name}</span> </p>
                 </div>}
 
             </div>

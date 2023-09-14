@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { httpsService } from "../services/https.service";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
 
     const USER_REGEX = /^[A-z][A-z0-9-_!@#$%]{3,23}$/;
+    const navigate = useNavigate();
 
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
@@ -45,6 +47,7 @@ export const Register = () => {
                     httpsService.postUser(user)
                     setTimeout(() => {
                         setSuccess(true)
+                        navigate('/login')
                     }, 3000);
                 }
             })

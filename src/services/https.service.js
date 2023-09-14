@@ -5,7 +5,8 @@ export const httpsService = {
     get,
     find,
     postUser,
-    addBday
+    addBday,
+    findById
 }
 
 function getAll(page = 0) {
@@ -14,6 +15,9 @@ function getAll(page = 0) {
 
 function get(id) {
     return http.get(`/user?id=${id}`);
+}
+function findById(id) {
+    return http.get(`/id/${id}`);
 }
 
 function find(query, by = "name", page = 0) {

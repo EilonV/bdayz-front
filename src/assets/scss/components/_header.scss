@@ -28,6 +28,8 @@ header {
         gap: 10px;
 
         .logged-name {
+            direction: rtl;
+
             span {
                 color: $yellow;
             }

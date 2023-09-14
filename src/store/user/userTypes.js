@@ -1,0 +1,1 @@
+export const GET_BDAYZ = 'GET_BDAYZ'
