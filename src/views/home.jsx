@@ -1,10 +1,8 @@
 import { useDispatch } from "react-redux";
 import { httpsService } from "../services/https.service"
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector"
-import { getBdayz, getUser } from "../store/user/userActions";
+import { useSelector } from "react-redux/es/hooks/useSelector"
+import { getBdayz } from "../store/user/userActions";
 import { useEffect, useRef } from "react";
-import present from '../assets/imgs/present.svg'
-import balloon from '../assets/imgs/balloons.svg'
 import { HomeGuest } from "../components/home-guest";
 
 export const Home = () => {
@@ -16,29 +14,23 @@ export const Home = () => {
         cookie &&
             httpsService.findById('64fe12d573d408fa80270c8d')
                 .then((res) => dispatch(getBdayz(res.data.bdayz)))
-    }, [dispatch])
+    }, [dispatch, cookie])
 
     const displayDate = (date) => {
         return `${new Date(date).getDay()}/${new Date(date).getMonth() + 1}/${new Date(date).getFullYear()}`
     }
 
-    const addBday = () => {
-        const data = {
-            "name": "eilonki pilonki",
-            "date": Date.now(),
-        }
-        httpsService.addBday('64fc85085e90bb58b91cf234', data)
-    }
+    // const addBday = (data) => {
+    //     httpsService.addBday('64fc85085e90bb58b91cf234', data)
+    // }
 
     const handleBdayForm = (e) => {
         e.preventDefault()
-        const name = e.target[0].value
-        const date = e.target[2].value
         const bday = {
-            name: e.target[0].value,
-            date: e.target[2].value
+            name: e.target[1].value,
+            date: new Date(e.target[2].value).getTime()
         }
-        console.log('NAME DATE', name, date);
+        console.log('NAME DATE', bday);
     }
 
     const openAddBdayModal = () => {
@@ -52,7 +44,7 @@ export const Home = () => {
     return <section className="home main-layout">
         <div className="bdayz">
             {bdayz.map((bday) => {
-                return <div className="bday" key={bday.name}>
+                return <div className="bday" key={bday.id}>
                     <h1>{bday.name}</h1>
                     <p>{displayDate(bday.date)}</p>
                 </div>

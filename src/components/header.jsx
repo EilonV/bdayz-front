@@ -49,12 +49,14 @@ export const Header = () => {
                             }>הרשמה</NavLink>
                         }
                     </li>
+                    <li>
+                        {cookies && <div className="logged-header flex align-center">
+                            <p className="logout" onClick={removeCookies}>התנתקות</p>
+                            <p className="logged-name">היי, <span>{name}</span> </p>
+                        </div>}
+                    </li>
                 </ul>
 
-                {cookies && <div className="logged-header flex align-center">
-                    <p className="logout" onClick={removeCookies}>התנתקות</p>
-                    <p className="logged-name">היי, <span>{name}</span> </p>
-                </div>}
             </div>
             <div className="hamburger" >
                 <input type="checkbox" id="checkbox" />
