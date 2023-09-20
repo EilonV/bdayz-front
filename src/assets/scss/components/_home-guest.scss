@@ -1,0 +1,82 @@
+.home-guest {
+    gap: 20px;
+    height: 80vh;
+
+    @include for-mobile-layout {
+        flex-direction: column;
+    }
+
+    .guest-desc {
+        background-color: $white;
+        padding: 20px 20px 20px 100px;
+        border-radius: 20px;
+        transition: 0.2s;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.326);
+        transform: translateX(50px);
+        width: 100%;
+        background: rgb(191, 65, 99);
+        background: linear-gradient(45deg, rgba(191, 65, 99, 0.3523459554720325) -40%, rgba(249, 249, 249, 1) 100%);
+        opacity: 0;
+        animation: fade-in-side-guest 0.7s 0.5s 1 forwards ease;
+
+        @include for-mobile-layout {
+            flex-direction: column;
+            animation: fade-in-side 0.7s 0.5s 1 forwards ease;
+        }
+
+        h2 {
+            font-size: 60px;
+
+            span {
+                color: $red;
+            }
+        }
+
+        h3 {
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .changing-words {
+            span {
+                position: absolute;
+                color: $red;
+                animation: word-switch 1s 1 forwards cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+
+            @keyframes word-switch {
+                20% {
+                    transform: translateX(-20px);
+                }
+
+                40% {
+                    transform: translateX(20px);
+                }
+
+                100% {
+                    transform: translateX(0px);
+
+                }
+            }
+        }
+    }
+
+    img {
+        width: calc(70% - 20px);
+        max-width: 700px;
+        z-index: 1;
+        transform: translateX(-100px);
+        opacity: 0;
+        animation: fade-in-side 0.7s 1 forwards ease;
+
+        @include for-mobile-layout {
+            width: 100%;
+        }
+
+    }
+
+}

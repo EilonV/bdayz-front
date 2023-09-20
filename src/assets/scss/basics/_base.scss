@@ -6,7 +6,7 @@ html {
     transition: 0.2s;
     scroll-behavior: smooth;
     font-family: Rubik;
-    height: 100vh;
+    // height: 100vh;
     overflow: hidden;
 }
 
@@ -160,6 +160,7 @@ input {
         &.password:after {
             content: "אותיות ומספרים בלבד";
         }
+
         &.bad-password:after {
             content: "סיסמא שגויה";
         }
