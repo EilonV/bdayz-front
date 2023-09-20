@@ -27,6 +27,7 @@ function find(query, by = "name", page = 0) {
 function postUser(data) {
     return http.post("/", data);
 }
+
 function addBday(id, data) {
-    return http.put(`/id/${id}`, data);
+    return http.post(`/id/${id}`, data);
 }

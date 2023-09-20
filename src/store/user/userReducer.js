@@ -13,5 +13,5 @@ const userReducuer = (state = initalState, action) => {
         default: return state
     }
 }
-console.log(typeof initalState.bdayz);
+
 export default userReducuer
