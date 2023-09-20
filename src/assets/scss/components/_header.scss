@@ -3,25 +3,136 @@ header {
     color: $white;
     font-size: 20px;
     width: 100%;
+    // position: relative;
+    overflow: hidden;
+    overflow-x: hidden;
 
-    a {
-        color: $pink;
-        transition: 0.2s;
-        padding: 5px 0;
+    .header-links {
+        ul {
+            gap: 10px;
+            transition: 0.5s;
 
-        &.active {
-            color: $white;
-            font-size: 24px;
-            font-weight: 700;
-        }
+            @include for-mobile-layout {
+                position: absolute;
+                transform: translateX(120%);
+                right: 0;
+                top: 0;
+                height: 100%;
+                background-color: $white;
+                z-index: 10;
+                flex-direction: column;
+                // margin: ;
+                width: 100%;
+                justify-content: center;
+                font-size: 30px;
 
-        &:hover {
-            transform: translateY(-5px);
+                &.active {
+                    transform: translateX(0);
+                    transition: 0.5s;
+                }
+            }
+
+            li {
+                transition: 0.2s;
+
+                a {
+                    color: $pink;
+                    padding: 5px 0;
+                    transition: 0.2s;
+
+                    &.active {
+                        color: $white;
+                        font-size: 24px;
+                        font-weight: 700;
+
+                        @include for-mobile-layout {
+                            color: $red;
+                            font-size: 40px;
+                        }
+                    }
+                }
+
+                &:hover {
+                    transform: translateY(-5px);
+                }
+            }
         }
     }
 
-    .header-links {
-        gap: 10px;
+    .hamburger {
+        display: none;
+        z-index: 20;
+        pointer-events: all;
+
+        @include for-mobile-layout {
+            display: block;
+        }
+
+        #checkbox {
+            display: none;
+        }
+
+        .toggle {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition-duration: .5s;
+
+            // display: none;
+            // pointer-events: all;
+            @include for-mobile-layout {
+                // display: flex;
+            }
+        }
+
+        .bars {
+            width: 100%;
+            height: 4px;
+            background-color: $yellow;
+            border-radius: 4px;
+        }
+
+        #bar2 {
+            transition-duration: .8s;
+        }
+
+        #bar1,
+        #bar3 {
+            width: 70%;
+        }
+
+        #checkbox:checked+.toggle .bars {
+            position: absolute;
+            transition-duration: .5s;
+        }
+
+        #checkbox:checked+.toggle #bar2 {
+            transform: scaleX(0);
+            transition-duration: .5s;
+        }
+
+        #checkbox:checked+.toggle #bar1 {
+            width: 100%;
+            transform: rotate(45deg);
+            transition-duration: .5s;
+        }
+
+        #checkbox:checked+.toggle #bar3 {
+            width: 100%;
+            transform: rotate(-45deg);
+            transition-duration: .5s;
+        }
+
+        #checkbox:checked+.toggle {
+            transition-duration: .5s;
+            transform: rotate(180deg);
+        }
     }
 
     .logged-header {
