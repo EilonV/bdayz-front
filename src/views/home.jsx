@@ -1,14 +1,13 @@
 import { useDispatch } from "react-redux";
 import { httpsService } from "../services/https.service"
 import { useSelector } from "react-redux/es/hooks/useSelector"
-import { getBdayz } from "../store/user/userActions";
-import { useEffect, useRef, useState } from "react";
+import { getBdayz, addBday, removeBday } from "../store/user/userActions";
+import { useEffect, useRef } from "react";
 import { HomeGuest } from "../components/home-guest";
 import { cookieService } from "../services/cookie.service";
 
 export const Home = () => {
     const bdayz = useSelector(state => state.bdayz)
-    const [data, setData] = useState()
     const dispatch = useDispatch()
     const addBdayRef = useRef()
     const cookie = document.cookie
@@ -36,6 +35,7 @@ export const Home = () => {
         }
         httpsService.addBday(cookieService.findCookie('id'), bday)
             .then(closeAddBdayModal())
+            .then(dispatch(addBday(bday)))
     }
 
     const openAddBdayModal = () => {
@@ -45,12 +45,19 @@ export const Home = () => {
     const closeAddBdayModal = () => {
         addBdayRef.current.classList.remove('active')
     }
+
+    const deleteBday = (bday) => {
+        httpsService.deleteBday(cookieService.findCookie('id'), bday.bdayId)
+            .then(dispatch(removeBday(bday.bdayId)))
+    }
+
     return <section className="home main-layout">
         <div className="bdayz">
             {bdayz.map((bday) => {
-                return <div className="bday" key={bday.id}>
+                return <div className="bday" key={bday.bdayId}>
                     <h1>{bday.name}</h1>
                     <p>{displayDate(bday.date)}</p>
+                    <button onClick={() => deleteBday(bday)}>הסר</button>
                 </div>
             })}
         </div>

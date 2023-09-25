@@ -5,8 +5,9 @@ export const httpsService = {
     get,
     find,
     postUser,
+    findById,
     addBday,
-    findById
+    deleteBday
 }
 
 function getAll(page = 0) {
@@ -30,4 +31,7 @@ function postUser(data) {
 
 function addBday(id, data) {
     return http.post(`/id/${id}`, data);
+}
+function deleteBday(id, bdayId) {
+    return http.delete(`/id/${id}?bdayId=${bdayId}`);
 }
