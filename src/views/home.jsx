@@ -2,21 +2,26 @@ import { useDispatch } from "react-redux";
 import { httpsService } from "../services/https.service"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import { getBdayz, addBday, removeBday } from "../store/user/userActions";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HomeGuest } from "../components/home-guest";
 import { cookieService } from "../services/cookie.service";
 
 export const Home = () => {
     const bdayz = useSelector(state => state.bdayz)
+    const [refresh, setRefresh] = useState()
     const dispatch = useDispatch()
     const addBdayRef = useRef()
     const cookie = document.cookie
 
     useEffect(() => {
-        cookie &&
+        getBdayzFromDB()
+    }, [dispatch, refresh])
+
+    const getBdayzFromDB = () => {
+        cookieService.findCookie('id') &&
             httpsService.findById(cookieService.findCookie('id'))
                 .then((res) => dispatch(getBdayz(res.data.bdayz)))
-    }, [dispatch, cookie])
+    }
 
     function displayDate(bdayDate) {
         const date = new Date(bdayDate);
@@ -34,8 +39,11 @@ export const Home = () => {
             date: new Date(e.target[2].value).getTime()
         }
         httpsService.addBday(cookieService.findCookie('id'), bday)
-            .then(closeAddBdayModal())
-            .then(dispatch(addBday(bday)))
+            .then(() => {
+                closeAddBdayModal()
+                setRefresh(new Date())
+                dispatch(addBday(bday))
+            })
     }
 
     const openAddBdayModal = () => {

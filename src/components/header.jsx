@@ -1,8 +1,12 @@
+import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom"
+import { clearBdayz } from "../store/user/userActions";
 
 export const Header = () => {
     let cookies
     if (document.cookie) cookies = document.cookie.split(";");
+
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const removeCookies = () => {
         for (var i = 0; i < cookies.length; i++) {
@@ -11,6 +15,7 @@ export const Header = () => {
             var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
             document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
         }
+        dispatch(clearBdayz())
         navigate('/login')
     }
     const toggleHamburger = () => {

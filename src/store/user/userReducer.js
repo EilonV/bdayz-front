@@ -1,4 +1,4 @@
-import { GET_BDAYZ, ADD_BDAY, REMOVE_BDAY } from "./userTypes"
+import { GET_BDAYZ, ADD_BDAY, REMOVE_BDAY, CLEAR_BDAYZ } from "./userTypes"
 
 const initalState = {
     bdayz: []
@@ -15,11 +15,20 @@ const userReducuer = (state = initalState, action) => {
             bdayz: [...state.bdayz, action.payload],
         }
         case REMOVE_BDAY:
-            const updatedBdayz = state.bdayz.filter((bday) => bday.id !== action.payload)
-            console.log(updatedBdayz);
+            const index = state.bdayz.findIndex((index) => index.bdayId === action.payload)
+            const newBdayz = [
+                ...state.bdayz.slice(0, index),
+                ...state.bdayz.slice(index + 1),
+            ];
             return {
                 ...state,
-                bdayz: updatedBdayz,
+                bdayz: newBdayz
+            }
+        case CLEAR_BDAYZ:
+
+            return {
+                ...state,
+                bdayz: []
             }
         default: return state
     }

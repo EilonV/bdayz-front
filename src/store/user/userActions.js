@@ -1,4 +1,4 @@
-import { GET_BDAYZ, ADD_BDAY, REMOVE_BDAY} from "./userTypes"
+import { GET_BDAYZ, ADD_BDAY, REMOVE_BDAY, CLEAR_BDAYZ } from "./userTypes"
 
 export const getBdayz = (bdayz) => {
     return {
@@ -13,9 +13,14 @@ export const addBday = (bday) => {
     }
 }
 
-export const removeBday = (bday) => {
+export const removeBday = (bdayId) => {
     return {
         type: REMOVE_BDAY,
-        payload: bday
+        payload: bdayId
+    }
+}
+export const clearBdayz = () => {
+    return {
+        type: CLEAR_BDAYZ
     }
 }
