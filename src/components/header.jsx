@@ -21,7 +21,15 @@ export const Header = () => {
     const toggleHamburger = () => {
         const hamburger = document.querySelector('#checkbox')
         const nav = document.querySelector('.nav-ul')
-        hamburger.checked ? nav.classList.remove('active') : nav.classList.add('active')
+        if (hamburger.checked) {
+            nav.classList.remove('active')
+            document.querySelector('html').style.overflowY = "auto"
+
+        }
+        else {
+            nav.classList.add('active')
+            document.querySelector('html').style.overflowY = "hidden"
+        }
     }
     const closeHamburger = () => {
         const hamburger = document.querySelector('#checkbox')

@@ -3,7 +3,7 @@ import { GET_BDAYZ, ADD_BDAY, REMOVE_BDAY, CLEAR_BDAYZ } from "./userTypes"
 const initalState = {
     bdayz: []
 }
-console.log(initalState);
+
 const userReducuer = (state = initalState, action) => {
     switch (action.type) {
         case GET_BDAYZ: return {

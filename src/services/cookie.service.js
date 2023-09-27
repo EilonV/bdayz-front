@@ -5,7 +5,6 @@ export const cookieService = {
 function getCookies() {
     const cookies = document.cookie;
     if (!cookies) {
-        console.log("No cookies found.");
         return {};
     }
 

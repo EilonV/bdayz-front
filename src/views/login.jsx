@@ -13,6 +13,8 @@ export const Login = () => {
         httpsService.find(email.value, 'email')
             .then((res) => {
                 if (res.data.users.length < 0) addError(email, 'email-404')
+
+                else if (!res.data.users[0]) addError(email, 'email-404')
                 else if (res.data.users[0].password !== pass.value)
                     addError(pass, 'bad-password')
                 else successfulLogin(res.data.users[0]._id, res.data.users[0].name)

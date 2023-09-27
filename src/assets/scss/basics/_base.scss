@@ -6,14 +6,15 @@ html {
     transition: 0.2s;
     scroll-behavior: smooth;
     font-family: Rubik;
-    height: 100vh;
-    position: relative;
+    overflow: hidden;
 }
 
 body {
     margin: 0;
     padding: 0;
     background-color: #D9A9C8;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     ::selection {
         color: $red;
