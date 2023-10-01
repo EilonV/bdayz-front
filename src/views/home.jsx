@@ -14,14 +14,14 @@ export const Home = () => {
     const cookie = document.cookie
 
     useEffect(() => {
+        const getBdayzFromDB = () => {
+            cookieService.findCookie('id') &&
+                httpsService.findById(cookieService.findCookie('id'))
+                    .then((res) => dispatch(getBdayz(res.data.bdayz)))
+        }
         getBdayzFromDB()
     }, [dispatch, refresh])
 
-    const getBdayzFromDB = () => {
-        cookieService.findCookie('id') &&
-            httpsService.findById(cookieService.findCookie('id'))
-                .then((res) => dispatch(getBdayz(res.data.bdayz)))
-    }
 
     function displayDate(bdayDate) {
         const date = new Date(bdayDate);
