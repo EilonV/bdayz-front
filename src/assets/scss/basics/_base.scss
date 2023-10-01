@@ -7,11 +7,12 @@ html {
     scroll-behavior: smooth;
     font-family: Rubik;
     overflow: hidden;
+    height: 100vh;
 }
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 0 !important;
     background-color: #D9A9C8;
     overflow-x: hidden;
     overflow-y: auto;
@@ -52,14 +53,6 @@ ul {
     width: 10px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    // border-radius: 5px;
-    // background: #555;
-}
 
 .logo {
     font-size: 40px;
@@ -118,7 +111,6 @@ input {
         color: $white;
     }
 
-    &::placeholder {}
 }
 
 .input-wrapper {

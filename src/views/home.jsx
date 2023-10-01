@@ -60,18 +60,21 @@ export const Home = () => {
     }
 
     return <section className="home main-layout">
-        <div className="bdayz">
-            {bdayz.map((bday) => {
-                return <div className="bday" key={bday.bdayId}>
-                    <h1>{bday.name}</h1>
-                    <p>{displayDate(bday.date)}</p>
-                    <button onClick={() => deleteBday(bday)}>הסר</button>
-                </div>
-            })}
-        </div>
 
-        {cookie ?
+        {cookie ? <div className="bdayz-wrapper flex column">
+            <div className="bdayz">
+                {bdayz.map((bday) => {
+                    return <div className="bday flex align-center space-between" key={bday.bdayId}>
+                        <div>
+                            <h1>{bday.name}</h1>
+                            <p>{displayDate(bday.date)}</p>
+                        </div>
+                        <button onClick={() => deleteBday(bday)}>הסר</button>
+                    </div>
+                })}
+            </div>
             <button onClick={openAddBdayModal}>הוסף</button>
+        </div>
             :
             <HomeGuest />
         }

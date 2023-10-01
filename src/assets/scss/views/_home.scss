@@ -5,6 +5,11 @@
     transform: translateY(100px);
     animation: fade-in 0.7s 0.5s 1 forwards ease;
 
+    // min-height: 94vh;
+    .bdayz-wrapper {
+        height: 92vh;
+    }
+
     .bdayz {
         gap: 10px;
         margin: 20px 0px;
@@ -22,10 +27,14 @@
             opacity: 0;
             animation: fade-in 0.7s 0.5s 1 forwards ease;
         }
+        button{
+          margin: 0;
+        }
     }
 
     button {
         justify-self: center;
+        align-self: center;
         margin: 0px 0px 20px;
     }
 
@@ -49,7 +58,7 @@
         form {
             transform: translate(50%, 10%);
             position: absolute;
-            top: 30%;
+            top: 20%;
             right: 50%;
             gap: 10px;
             width: calc(100% - 40px);
