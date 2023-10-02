@@ -5,6 +5,13 @@ Add birthday boys/girls to never forget another birthday again.
 
 
 
+## Demo
+
+https://bdayz.netlify.app/
+
+![alt text](https://i.ibb.co/T1HFz8t/twitter-card.png)
+
+![alt text](https://i.ibb.co/JFq5Js3/og-image.png)
 ## Built with
 
 Client:
@@ -31,10 +38,7 @@ Server:
 
 - [@EilonV](https://www.github.com/eilonv)
 
-
-## Demo
-
-https://bdayz.netlify.app/## Notes
+## Notes
 
 - I am a frontend developer so the backend is very simple (most important backend features are difficult for me so it is in progress)
 - No current email validation (soon)
