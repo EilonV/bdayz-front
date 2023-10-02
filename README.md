@@ -41,5 +41,5 @@ Server:
 ## Notes
 
 - I am a frontend developer so the backend is not very simple to me (most important backend features are difficult for me so it is in progress)
-- No current email validation (soon)
+- No current email validation so the email is basically a username (soon)
 - No nodemailer reminders (soon)
