@@ -5,6 +5,7 @@ import { getBdayz, addBday, removeBday } from "../store/user/userActions";
 import { useEffect, useRef, useState } from "react";
 import { HomeGuest } from "../components/home-guest";
 import { cookieService } from "../services/cookie.service";
+import { EmptyBdayz } from "../components/empty-bdayz";
 
 export const Home = () => {
     const bdayz = useSelector(state => state.bdayz)
@@ -62,17 +63,21 @@ export const Home = () => {
     return <main className="home main-layout">
 
         {cookie ? <div className="bdayz-wrapper flex column">
-            <div className="bdayz">
-                {bdayz.map((bday) => {
-                    return <div className="bday flex align-center space-between" key={bday.bdayId}>
-                        <div>
-                            <h1>{bday.name}</h1>
-                            <p>{displayDate(bday.date)}</p>
+            {bdayz.length <= 0 ?
+                <EmptyBdayz />
+                :
+                <div className="bdayz">
+                    {bdayz.map((bday) => {
+                        return <div className="bday flex align-center space-between" key={bday.bdayId}>
+                            <div>
+                                <h1>{bday.name}</h1>
+                                <p>{displayDate(bday.date)}</p>
+                            </div>
+                            <button onClick={() => deleteBday(bday)}>הסר</button>
                         </div>
-                        <button onClick={() => deleteBday(bday)}>הסר</button>
-                    </div>
-                })}
-            </div>
+                    })}
+                </div>
+            }
             <button onClick={openAddBdayModal}>הוסף</button>
         </div>
             :
