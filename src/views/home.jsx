@@ -59,7 +59,7 @@ export const Home = () => {
             .then(dispatch(removeBday(bday.bdayId)))
     }
 
-    return <section className="home main-layout">
+    return <main className="home main-layout">
 
         {cookie ? <div className="bdayz-wrapper flex column">
             <div className="bdayz">
@@ -90,5 +90,5 @@ export const Home = () => {
                 <button >הוספה</button>
             </form>
         </div>
-    </section>
+    </main>
 }

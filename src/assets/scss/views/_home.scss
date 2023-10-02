@@ -2,10 +2,8 @@
     direction: rtl;
     height: 100%;
     opacity: 0;
-    transform: translateY(100px);
     animation: fade-in 0.7s 0.5s 1 forwards ease;
 
-    // min-height: 94vh;
     .bdayz-wrapper {
         height: 92vh;
     }
@@ -27,8 +25,9 @@
             opacity: 0;
             animation: fade-in 0.7s 0.5s 1 forwards ease;
         }
-        button{
-          margin: 0;
+
+        button {
+            margin: 0;
         }
     }
 

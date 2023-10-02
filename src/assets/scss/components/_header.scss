@@ -4,17 +4,15 @@ header {
     font-size: 20px;
     width: 100%;
 
-
     .header-links {
 
         ul {
-
             gap: 10px;
             transition: 0.5s;
 
             @include for-mobile-layout {
                 position: absolute;
-                transform: translateX(105%);
+                transform: translateX(120%);
                 right: 0;
                 top: 0;
                 height: 100%;
@@ -94,12 +92,6 @@ header {
             justify-content: center;
             gap: 10px;
             transition-duration: .5s;
-
-            // display: none;
-            // pointer-events: all;
-            @include for-mobile-layout {
-                // display: flex;
-            }
         }
 
         .bars {
