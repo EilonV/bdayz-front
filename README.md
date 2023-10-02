@@ -40,6 +40,6 @@ Server:
 
 ## Notes
 
-- I am a frontend developer so the backend is very simple (most important backend features are difficult for me so it is in progress)
+- I am a frontend developer so the backend is not very simple to me (most important backend features are difficult for me so it is in progress)
 - No current email validation (soon)
 - No nodemailer reminders (soon)
